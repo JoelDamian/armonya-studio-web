@@ -12,6 +12,43 @@
   border-bottom: 1px solid var(--border);
 }
 
+.hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--foreground);
+  padding: 0;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburgerOpen .hamburgerLine:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburgerOpen .hamburgerLine:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburgerOpen .hamburgerLine:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -59,13 +96,77 @@
   opacity: 0.9;
 }
 
+/* Mobile overlay (hidden on desktop) */
+.navOverlay {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .header {
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .logoImg {
+    height: 56px;
   }
 
   .nav {
-    gap: 1.25rem;
-    font-size: 0.65rem;
+    display: none;
+  }
+
+  .themeToggle {
+    width: 36px;
+    height: 36px;
+    margin-left: auto;
+  }
+
+  .navOverlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: var(--header-bg);
+    padding: 5rem 1.5rem 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .navOverlay[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .navPanel a {
+    color: var(--foreground);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navPanel a:hover {
+    color: var(--accent);
   }
 }

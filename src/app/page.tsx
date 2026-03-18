@@ -177,10 +177,10 @@ export default function Home() {
           </div>
           <div className={styles.footerLinks}>
             <h4>ENLACES RÁPIDOS</h4>
-            <a href="#projects">Proyectos</a>
-            <a href="#about">Nuestro equipo</a>
-            <a href="#">Noticias y prensa</a>
+            <a href="#projects">Inicio</a>
+            <a href="#about">Nosotros</a>
             <a href="#contact">Contacto</a>
+            <a href="https://www.canva.com/design/DAEpXvxw4WY/dGqq1PkkGPWrgxQmIbkb2w/view?utm_content=DAEpXvxw4WY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9c46da331" target="_blank" rel="noopener noreferrer">Portafolio</a>
           </div>
           <div className={styles.footerStudio}>
             <h4>ESTUDIO</h4>

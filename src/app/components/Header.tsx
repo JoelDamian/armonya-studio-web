@@ -10,6 +10,7 @@ const navLinks = [
   { href: "#about", label: "NOSOTROS" },
   { href: "#disciplines", label: "PROYECTOS" },
   { href: "#contact", label: "CONTACTO" },
+  { href: "https://www.canva.com/design/DAEpXvxw4WY/dGqq1PkkGPWrgxQmIbkb2w/view?utm_content=DAEpXvxw4WY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9c46da331", label: "PORTAFOLIO", external: true },
 ];
 
 export default function Header() {
@@ -65,11 +66,17 @@ export default function Header() {
           />
         </Link>
         <nav className={styles.nav}>
-          {navLinks.map(({ href, label }) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
-          ))}
+          {navLinks.map(({ href, label, external }) =>
+            external ? (
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer">
+                {label}
+              </a>
+            ) : (
+              <Link key={href} href={href}>
+                {label}
+              </Link>
+            )
+          )}
         </nav>
         <button
           type="button"
@@ -86,11 +93,17 @@ export default function Header() {
         aria-hidden={!menuOpen}
       >
         <nav className={styles.navPanel}>
-          {navLinks.map(({ href, label }) => (
-            <Link key={href} href={href} onClick={closeMenu}>
-              {label}
-            </Link>
-          ))}
+          {navLinks.map(({ href, label, external }) =>
+            external ? (
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
+                {label}
+              </a>
+            ) : (
+              <Link key={href} href={href} onClick={closeMenu}>
+                {label}
+              </Link>
+            )
+          )}
         </nav>
       </div>
     </>

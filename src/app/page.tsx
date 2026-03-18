@@ -22,7 +22,7 @@ export default function Home() {
         <div className={styles.heroContent}>
           <p className={styles.heroSubtitle}>ARQUITECTURA E INTERIORES</p>
           <h1 className={styles.heroTitle}>
-            Armonya
+            ARMONYA
             <br />
             en el diseño
           </h1>
@@ -184,8 +184,8 @@ export default function Home() {
           </div>
           <div className={styles.footerStudio}>
             <h4>ESTUDIO</h4>
-            <p>Av. Creativa 123</p>
-            <p>Distrito del Diseño</p>
+            <p>Av. Blanco Galindo Km 6</p>
+            <p>Cochabamba, Bolivia</p>
             <p>+591 68496588</p>
           </div>
         </div>
